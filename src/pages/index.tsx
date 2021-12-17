@@ -9,6 +9,15 @@ import config from "../lib/config";
 import { countPosts, listPostContent, PostContent } from "../lib/posts";
 import { listTags, TagContent } from "../lib/tags";
 
+type Props = {
+  posts: PostContent[];
+  tags: TagContent[];
+  pagination: {
+    current: number;
+    pages: number;
+  };
+};
+
 export default function Index({ posts, tags, pagination }: Props) {
   const url = "/";
   return (
