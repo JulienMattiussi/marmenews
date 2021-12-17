@@ -1,11 +1,14 @@
 import { GetStaticProps } from "next";
+import Link from "next/link";
 
 import Layout from "../components/Layout";
 import BasicMeta from "../components/meta/BasicMeta";
 import OpenGraphMeta from "../components/meta/OpenGraphMeta";
 import TwitterCardMeta from "../components/meta/TwitterCardMeta";
 import { SocialList } from "../components/SocialList";
+import { ExternalLinks } from "../components/ExternalLinks";
 import { PostList } from "../components/PostList";
+import { PostCategoriesList } from "../components/PostCategoriesList";
 
 import config from "../lib/config";
 import { countPosts, listPostContent, PostContent } from "../lib/posts";
@@ -28,17 +31,23 @@ export default function Index({ posts, tags, pagination }: Props) {
       <OpenGraphMeta url={url} />
       <TwitterCardMeta url={url} />
       <div className="container">
-        <header>
-          <h1>
-            La Marmezette
-          </h1>
-          <span className="handle">Par Karen</span>
-        </header>
-        <section>
-          <h2>Dernières Nouvelles</h2>
-          <PostList posts={posts} tags={tags} pagination={pagination} />
-        </section>
-        <SocialList />
+        <div>
+          <header>
+            <h1>La Marmezette</h1>
+            <span className="handle">Par Karen</span>
+          </header>
+          <section>
+            <h2>Dernières Nouvelles</h2>
+            <PostList posts={posts} tags={tags} pagination={pagination} />
+          </section>
+          <SocialList />
+        </div>
+      </div>
+      <div className="aside">
+        <h5>Liens utiles</h5>
+        <ExternalLinks />
+        <h5>Categories</h5>
+        <PostCategoriesList tags={tags} />
       </div>
       <style jsx>{`
         .container {
@@ -58,6 +67,9 @@ export default function Index({ posts, tags, pagination }: Props) {
           line-height: 1.25;
           text-decoration: underline;
           text-underline-offset: 8px;
+        }
+        h5 {
+            margin: 16px 0px 8px;
         }
         .fancy {
           color: #15847d;

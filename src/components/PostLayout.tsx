@@ -1,4 +1,6 @@
 import React from "react";
+import Link from "next/link";
+
 import styles from "../../public/styles/content.module.css";
 import Author from "./Author";
 import Copyright from "./Copyright";
@@ -22,6 +24,7 @@ type Props = {
   description?: string;
   children: React.ReactNode;
 };
+
 export default function PostLayout({
   title,
   date,
