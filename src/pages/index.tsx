@@ -40,7 +40,9 @@ export default function Index({ posts, tags, pagination }: Props) {
             <h2>Dernières Nouvelles</h2>
             <PostList posts={posts} tags={tags} pagination={pagination} />
           </section>
-          <SocialList />
+          <section className="socialiste">
+            <SocialList />
+          </section>
         </div>
       </div>
       <div className="aside">
@@ -69,8 +71,13 @@ export default function Index({ posts, tags, pagination }: Props) {
           text-underline-offset: 8px;
         }
         h5 {
-            margin: 16px 0px 8px;
+          margin: 16px 0px 8px;
         }
+
+        .socialiste {
+          padding: 16px 0px;
+        }
+
         .fancy {
           color: #15847d;
         }
