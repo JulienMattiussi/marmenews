@@ -1,4 +1,5 @@
 import { PostContent } from "../lib/posts";
+import styles from "../../public/styles/content.module.css";
 import Date from "./Date";
 import Link from "next/link";
 import { parseISO } from "date-fns";
@@ -24,6 +25,7 @@ export default function PostItem({ post }: Props) {
             }
           `}
         </style>
+        <div className={styles.content}>{post.body}</div>
       </a>
     </Link>
   );
