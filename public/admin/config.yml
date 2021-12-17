@@ -51,7 +51,7 @@ collections:
       preview: false
     files:
       - name: "authors"
-        label: "Authors"
+        label: "Auteurs"
         file: "meta/authors.yml"
         description: "Author descriptions"
         fields:
@@ -68,8 +68,8 @@ collections:
                 name: "name"
                 widget: "string"
                 hint: "First and Last"
-              - label: "Introduction"
-                name: "introduction"
+              - label: "Description"
+                name: "description"
                 widget: "text"
       - name: "tags"
         label: "Tags"
