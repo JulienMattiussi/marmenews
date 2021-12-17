@@ -46,9 +46,6 @@ export default function Index({ posts, tags, pagination }: Props) {
           flex-direction: column;
           flex: 1 1 auto;
           padding: 0 1.5rem;
-          margin: 0 auto;
-          max-width: 1200px;
-          width: 100%;
         }
         h1 {
           font-size: 2.5rem;
@@ -60,6 +57,7 @@ export default function Index({ posts, tags, pagination }: Props) {
           font-weight: 400;
           line-height: 1.25;
           text-decoration: underline;
+          text-underline-offset: 8px;
         }
         .fancy {
           color: #15847d;
@@ -76,7 +74,7 @@ export default function Index({ posts, tags, pagination }: Props) {
             font-size: 3rem;
           }
           h2 {
-            font-size: 2.25rem;
+            font-size: 2rem;
           }
         }
       `}</style>

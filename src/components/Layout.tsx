@@ -14,10 +14,12 @@ export default function Layout({ children }: Props) {
         <link rel="apple-touch-icon" href="/icon.png" />
         <meta name="theme-color" content="#fff" />
       </Head>
-      <nav>
-        <Navigation />
-      </nav>
-      <main>{children}</main>
+      <main>
+        <nav>
+          <Navigation />
+        </nav>
+        {children}
+      </main>
       <style jsx>
         {`
           .root {
@@ -25,6 +27,9 @@ export default function Layout({ children }: Props) {
             padding: 4rem 0;
             box-sizing: border-box;
             height: 100%;
+            margin: 0 auto;
+            max-width: 1200px;
+            width: 100%;
           }
           main {
             display: flex;
@@ -37,6 +42,7 @@ export default function Layout({ children }: Props) {
             }
             main {
               flex: 1 0 auto;
+              flex-direction: row-reverse;
             }
           }
         `}

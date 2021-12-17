@@ -69,6 +69,10 @@ export function PostList({ posts, tags, pagination }: Props) {
         .categories li {
           margin-bottom: 0.75em;
         }
+        .categories li:hover {
+          text-decoration: underline;
+          text-underline-offset: 8px;
+        }
 
         @media (min-width: 769px) {
           .categories {
