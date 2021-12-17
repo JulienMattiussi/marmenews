@@ -10,48 +10,57 @@ export default function Navigation() {
     <>
       <Burger active={active} onClick={() => setActive(!active)} />
       <div className={"container " + (active ? "active" : "")}>
-        <ul>
-          <li>
-            <Link href="/">
-              <a className={router.pathname === "/" ? "active" : null}>Home</a>
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="https://meet.google.com/fhu-wvvr-zph"
-              target="_blank"
-              rel="noopener"
-            >
-              <a>☕ Café</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="https://casquette.xyz" target="_blank" rel="noopener">
-              <a>🧢 Casquette</a>
-            </Link>
-          </li>
-        </ul>
+        <div className="nav">
+          <ul>
+            {router.pathname !== "/" && (
+              <li>
+                <Link href="/">
+                  <a>Retour</a>
+                </Link>
+              </li>
+            )}
+          </ul>
+          <h5>Liens utiles</h5>
+          <ul>
+            <li>
+              <Link href="https://meet.google.com/fhu-wvvr-zph">
+                <a target="_blank" rel="noopener">
+                  ☕ Café
+                </a>
+              </Link>
+            </li>
+            <li>
+              <Link href="https://casquette.xyz">
+                <a target="_blank" rel="noopener">
+                  🧢 Casquette
+                </a>
+              </Link>
+            </li>
+          </ul>
+        </div>
         <style jsx>
           {`
             .container {
               width: 0;
             }
+            .nav {
+              position: fixed;
+              top: 0;
+              z-index: 1;
+              transform: translateY(100%);
+              transition: opacity 200ms;
+            }
             ul {
               opacity: 0;
               width: 100%;
               height: 100vh;
-              text-align: right;
               list-style: none;
               margin: 0;
-              padding: 0;
-              position: fixed;
-              top: 0;
+              padding: 8px 0px;
+
               display: flex;
               flex-direction: column;
               justify-content: center;
-              z-index: 1;
-              transform: translateY(100%);
-              transition: opacity 200ms;
             }
             .active ul {
               opacity: 1;
@@ -65,6 +74,10 @@ export default function Navigation() {
             li:last-child {
               margin-bottom: 0;
             }
+            li:hover {
+              text-decoration: underline;
+              text-underline-offset: 8px;
+            }
             .active {
               color: #222;
             }
@@ -73,6 +86,7 @@ export default function Navigation() {
               .container {
                 width: 7rem;
                 display: block;
+                padding: 16px;
               }
               ul {
                 opacity: 1;
