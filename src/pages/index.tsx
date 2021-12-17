@@ -3,30 +3,41 @@ import BasicMeta from "../components/meta/BasicMeta";
 import OpenGraphMeta from "../components/meta/OpenGraphMeta";
 import TwitterCardMeta from "../components/meta/TwitterCardMeta";
 import { SocialList } from "../components/SocialList";
+import { PostList } from "../components/PostList";
 
-export default function Index() {
+import config from "../lib/config";
+import { countPosts, listPostContent, PostContent } from "../lib/posts";
+import { listTags, TagContent } from "../lib/tags";
+
+export default function Index({ posts, tags, pagination }: Props) {
+  const url = "/";
   return (
     <Layout>
-      <BasicMeta url={"/"} />
-      <OpenGraphMeta url={"/"} />
-      <TwitterCardMeta url={"/"} />
+      <BasicMeta url={url} />
+      <OpenGraphMeta url={url} />
+      <TwitterCardMeta url={url} />
       <div className="container">
-        <div>
+        <header>
           <h1>
-            Hi, We're Next.js & Netlify<span className="fancy">.</span>
+            La Marmezette
           </h1>
-          <span className="handle">@nextjs-netlify-blog</span>
-          <h2>A blog template with Next.js and Netlify.</h2>
-          <SocialList />
-        </div>
+          <span className="handle">Par Karen</span>
+        </header>
+        <section>
+          <h2>Dernières nouvelles</h2>
+          <PostList posts={posts} tags={tags} pagination={pagination} />
+        </section>
+        <SocialList />
       </div>
       <style jsx>{`
         .container {
           display: flex;
-          align-items: center;
-          justify-content: center;
+          flex-direction: column;
           flex: 1 1 auto;
           padding: 0 1.5rem;
+          margin: 0 auto;
+          max-width: 1200px;
+          width: 100%;
         }
         h1 {
           font-size: 2.5rem;
@@ -60,3 +71,19 @@ export default function Index() {
     </Layout>
   );
 }
+
+export const getStaticProps: GetStaticProps = async () => {
+  const posts = listPostContent(1, config.posts_per_page);
+  const tags = listTags();
+  const pagination = {
+    current: 1,
+    pages: Math.ceil(countPosts() / config.posts_per_page),
+  };
+  return {
+    props: {
+      posts,
+      tags,
+      pagination,
+    },
+  };
+};

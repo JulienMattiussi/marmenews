@@ -13,7 +13,8 @@ type Props = {
     pages: number;
   };
 };
-export default function PostList({ posts, tags, pagination }: Props) {
+
+export function PostList({ posts, tags, pagination }: Props) {
   return (
     <div className={"container"}>
       <div className={"posts"}>
@@ -43,10 +44,6 @@ export default function PostList({ posts, tags, pagination }: Props) {
       <style jsx>{`
         .container {
           display: flex;
-          margin: 0 auto;
-          max-width: 1200px;
-          width: 100%;
-          padding: 0 1.5rem;
         }
         ul {
           margin: 0;
