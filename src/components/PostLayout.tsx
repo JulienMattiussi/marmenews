@@ -1,5 +1,5 @@
 import React from "react";
-//import styles from "../../public/styles/content.module.css";
+import styles from "../../public/styles/content.module.css";
 import Author from "./Author";
 import Copyright from "./Copyright";
 import Date from "./Date";
@@ -12,13 +12,6 @@ import { SocialList } from "./SocialList";
 import TagButton from "./TagButton";
 import { getAuthor } from "../lib/authors";
 import { getTag } from "../lib/tags";
-
-const styles = {
-  content: `
-    font-family: "Ubuntu", sans-serif;
-    color: #222;
-    font-weight: 200;`,
-};
 
 type Props = {
   title: string;
