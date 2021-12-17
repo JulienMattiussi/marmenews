@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { TagContent } from "../lib/tags";
 
 type Props = {
   tags: TagContent[];
