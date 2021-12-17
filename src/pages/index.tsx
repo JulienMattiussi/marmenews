@@ -56,6 +56,7 @@ export default function Index({ posts, tags, pagination }: Props) {
           flex-direction: column;
           flex: 1 1 auto;
           padding: 0 1.5rem;
+          max-width: 900px;
         }
         h1 {
           font-size: 2.5rem;
