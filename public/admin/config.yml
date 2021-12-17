@@ -1,6 +1,7 @@
 backend:
   name: github
   repo: JulienMattiussi/marmenews
+  branch: main
   base_url: https://marmenews.vercel.app/
   auth_endpoint: api/auth
 media_folder: public/images
