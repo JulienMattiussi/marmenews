@@ -6,3 +6,6 @@ authors:
   - slug: juju
     name: juju
     description: Juju
+  - slug: titi
+    name: titi
+    description: titi
