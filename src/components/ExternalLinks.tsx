@@ -2,11 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { TagContent } from "../lib/tags";
 
-type Props = {
-  tags: TagContent[];
-};
-
-export function ExternalLinks({ tags }: Props) {
+export function ExternalLinks() {
   return (
     <>
       <ul className="external-links">
