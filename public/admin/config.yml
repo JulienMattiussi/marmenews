@@ -1,6 +1,10 @@
 backend:
-  name: git-gateway
-  branch: main
+  #  name: git-gateway
+  #  branch: main
+  name: github
+  repo: JulienMattiussi/marmenews
+  base_url: marmenews.vercel.app
+  auth_endpoint: api/auth
 media_folder: public/images
 public_folder: /images
 publish_mode: editorial_workflow
