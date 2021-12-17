@@ -1,19 +1,19 @@
 {
-  "base_url": "https://wutali-nextjs-netlify-blog.netlify.app",
-  "site_title": "Next.js Netlify Blog",
-  "site_description": "Next.js blog template for Netlify",
+  "base_url": "https://marmenews.vercel.app",
+  "site_title": "La Marmezette",
+  "site_description": "Toutes les actualités de Marmelab, et même plus",
   "site_keywords": [
     {
-      "keyword": "Next.js"
+      "keyword": "Marmelab"
     },
     {
-      "keyword": "Netlify"
+      "keyword": "Actualites"
     },
     {
-      "keyword": "React"
+      "keyword": "Irene"
     }
   ],
-  "posts_per_page": 5,
-  "twitter_account": "@my-account",
-  "github_account": "wutali"
+  "posts_per_page": 15,
+  "twitter_account": "@marmelab",
+  "github_account": "Marmelab"
 }
