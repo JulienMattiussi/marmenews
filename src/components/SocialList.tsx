@@ -5,7 +5,7 @@ import config from "../lib/config";
 
 export function SocialList({}) {
   return (
-    <div>
+    <div className="container">
       <a
         title="Twitter"
         href={`https://twitter.com/${config.twitter_account}`}
@@ -23,6 +23,9 @@ export function SocialList({}) {
         <GitHub width={24} height={24} fill={"#222"} />
       </a>
       <style jsx>{`
+        .container {
+          padding: 8px 0px 4px;
+        }
         a {
           display: inline-block;
         }

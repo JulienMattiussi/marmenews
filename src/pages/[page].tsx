@@ -41,9 +41,6 @@ export default function Index({ posts, tags, pagination }: Props) {
             <h2>Dernières Nouvelles</h2>
             <PostList posts={posts} tags={tags} pagination={pagination} />
           </section>
-          <section className="socialiste">
-            <SocialList />
-          </section>
         </div>
       </div>
       <div className="aside">
@@ -51,6 +48,8 @@ export default function Index({ posts, tags, pagination }: Props) {
         <ExternalLinks />
         <h5>Categories</h5>
         <PostCategoriesList tags={tags} />
+        <h5>Réseaux "Sociaux"</h5>
+        <SocialList />
       </div>
       <style jsx>{`
         .container {
@@ -73,10 +72,6 @@ export default function Index({ posts, tags, pagination }: Props) {
         }
         h5 {
           margin: 16px 0px 8px;
-        }
-
-        .socialiste {
-          padding: 16px 0px;
         }
 
         .fancy {
