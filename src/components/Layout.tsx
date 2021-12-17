@@ -1,9 +1,10 @@
 import Head from "next/head";
-import Navigation from "./Navigation";
+import { Navigation } from "./Navigation";
 
 type Props = {
   children: React.ReactNode;
 };
+
 export default function Layout({ children }: Props) {
   return (
     <div className="root">
@@ -14,12 +15,8 @@ export default function Layout({ children }: Props) {
         <link rel="apple-touch-icon" href="/icon.png" />
         <meta name="theme-color" content="#fff" />
       </Head>
-      <main>
-        <nav>
-          <Navigation />
-        </nav>
-        {children}
-      </main>
+      <Navigation />
+      <main>{children}</main>
       <style jsx>
         {`
           .root {
@@ -42,7 +39,6 @@ export default function Layout({ children }: Props) {
             }
             main {
               flex: 1 0 auto;
-              flex-direction: row-reverse;
             }
           }
         `}
