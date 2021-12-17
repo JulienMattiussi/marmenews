@@ -1,15 +1,17 @@
 type Props = {
   width: number;
   height: number;
+  className: string;
 };
 
 export function CloseIcon(props: Props) {
-  const { height, width } = props;
+  const { className, height, width } = props;
 
   return (
     <svg
       viewBox="0 0 128 128"
       xmlns="http://www.w3.org/2000/svg"
+      className={className}
       height={height}
       width={width}
     >
