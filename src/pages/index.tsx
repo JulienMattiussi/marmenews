@@ -24,7 +24,7 @@ export default function Index({ posts, tags, pagination }: Props) {
           <span className="handle">Par Karen</span>
         </header>
         <section>
-          <h2>Dernières nouvelles</h2>
+          <h2>Dernières Nouvelles</h2>
           <PostList posts={posts} tags={tags} pagination={pagination} />
         </section>
         <SocialList />
@@ -45,9 +45,10 @@ export default function Index({ posts, tags, pagination }: Props) {
           font-weight: 500;
         }
         h2 {
-          font-size: 1.75rem;
+          font-size: 1.5rem;
           font-weight: 400;
           line-height: 1.25;
+          text-decoration: underline;
         }
         .fancy {
           color: #15847d;
