@@ -1,4 +1,5 @@
 import { GetStaticPaths, GetStaticProps } from "next";
+import { useSession, signIn, signOut } from "next-auth/react";
 import Link from "next/link";
 
 import Layout from "../components/Layout";
@@ -25,7 +26,9 @@ type Props = {
 };
 
 export default function Index({ posts, tags, pagination }: Props) {
+  const { data: session } = useSession();
   const url = "/";
+
   return (
     <Layout>
       <BasicMeta url={url} />
@@ -99,30 +102,30 @@ export default function Index({ posts, tags, pagination }: Props) {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-    const page = parseInt(params.page as string);
-    const posts = listPostContent(page, config.posts_per_page);
-    const tags = listTags();
-    const pagination = {
-      current: page,
-      pages: Math.ceil(countPosts() / config.posts_per_page),
-    };
-    return {
-      props: {
-        page,
-        posts,
-        tags,
-        pagination,
-      },
-    };
+  const page = parseInt(params.page as string);
+  const posts = listPostContent(page, config.posts_per_page);
+  const tags = listTags();
+  const pagination = {
+    current: page,
+    pages: Math.ceil(countPosts() / config.posts_per_page),
   };
+  return {
+    props: {
+      page,
+      posts,
+      tags,
+      pagination,
+    },
+  };
+};
 
-  export const getStaticPaths: GetStaticPaths = async () => {
-    const pages = Math.ceil(countPosts() / config.posts_per_page);
-    const paths = Array.from(Array(pages - 1).keys()).map((it) => ({
-      params: { page: (it + 2).toString() },
-    }));
-    return {
-      paths: paths,
-      fallback: false,
-    };
+export const getStaticPaths: GetStaticPaths = async () => {
+  const pages = Math.ceil(countPosts() / config.posts_per_page);
+  const paths = Array.from(Array(pages - 1).keys()).map((it) => ({
+    params: { page: (it + 2).toString() },
+  }));
+  return {
+    paths: paths,
+    fallback: false,
   };
+};
